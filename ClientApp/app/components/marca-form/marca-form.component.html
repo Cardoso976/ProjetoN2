@@ -1,0 +1,21 @@
+<h1>Cadastro Marca</h1>
+<p>
+  {{marca | json}}
+</p>
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="form-group">
+    <br>
+    <label for="nome">Marca</label>
+    <input id="nome" type="text" class="form-control" [(ngModel)]="marca.nome" name="marcaNome" required #marcaNome="ngModel">
+    <div class="alert alert-danger" *ngIf="marcaNome.touched && !marcaNome.valid">Por favor digite o nome da marca.</div>
+  </div>
+  <p>A marca esta ativa?</p>
+  <label for="ativo" class="radio-inline">
+    <input type="radio" name="ativo" id="ativo" [value]="true" [(ngModel)]="marca.ativo"> Sim
+  </label>
+  <label for="notAtivo" class="radio-inline">
+    <input type="radio" name="ativo" id="notAtivo" [value]="false" [(ngModel)]="marca.ativo"> Não
+  </label>
+  <br><br>
+  <button class="btn btn-primary">Salvar</button>
+</form>

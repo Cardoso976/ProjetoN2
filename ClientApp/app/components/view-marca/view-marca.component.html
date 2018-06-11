@@ -1,0 +1,24 @@
+<h1>Marcas</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a aria-controls="basic" role="tab" data-toggle="tab">Marcas</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" >
+    <!-- Vehicle tab -->
+    <div role="tabpanel" class="tab-pane active" *ngIf="marca">
+      <h2>Basico</h2>
+      <ul>
+        <li>Marca: {{ marca.nome}}</li>
+        <li>Ativo: {{ marca.ativo ? 'Sim' : 'Não' }}
+      </ul>      
+      <br/>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/marcas/edit/', marca.id]">Edit</a>
+        <button class="btn btn-danger" (click)="delete()">Delete</button>
+        <a class="btn btn-default" [routerLink]="['/marcas']">View All Marcas</a>
+      </p>
+    </div>    
+  </div>
+</div>

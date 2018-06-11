@@ -1,0 +1,24 @@
+<h1>Lista de Marcas</h1>
+<p>
+    <a [routerLink]="['/marcas/new']" class="btn btn-primary">Nova Marca</a>
+  </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of marcas" >
+      <td>{{ m.nome }}</td>
+      <td>{{ m.ativo ? 'Sim' : 'Não' }}</td>
+      <td>
+          <a [routerLink]="['/marcas/', m.id]">View</a>
+        </td>
+    </tr>
+  </tbody>
+</table>
