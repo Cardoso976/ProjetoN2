@@ -1,7 +1,7 @@
 import { ToastyService } from 'ng2-toasty';
-import { marca } from './../../models/marca';
+import { marca } from './../../../models/marca';
 import { Component, OnInit } from '@angular/core';
-import { MarcaService } from '../../services/marca.service';
+import { MarcaService } from '../../../services/marca.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/Observable/forkJoin';
 
