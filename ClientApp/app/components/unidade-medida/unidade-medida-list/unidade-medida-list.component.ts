@@ -1,3 +1,5 @@
+import { UnidadeMedidaService } from './../../../services/unidade-medida.service';
+import { unidadeMedida } from './../../../models/unidade-medida';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./unidade-medida-list.component.css']
 })
 export class UnidadeMedidaListComponent implements OnInit {
+  unidadeMedidas : unidadeMedida [] = [];
+  columns = [
+    {title: 'Nome'},
+    {title: 'Sigla'},
+    {title: 'Ativo'},
+    { }
+  ];
 
-  constructor() { }
+  constructor(private unidadeMedidaService: UnidadeMedidaService) { }
 
   ngOnInit() {
+    this.unidadeMedidaService.getUnidadeMedidas()
+      .subscribe(datas => this.unidadeMedidas = datas);
   }
 
 }

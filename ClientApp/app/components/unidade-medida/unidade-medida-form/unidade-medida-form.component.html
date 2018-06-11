@@ -1,3 +1,25 @@
-<p>
-  unidade-medida-form works!
-</p>
+<h1>Cadastro Unidade Medida</h1>
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="form-group">
+    <br>
+    <label for="nome">Marca</label>
+    <input id="nome" type="text" class="form-control" [(ngModel)]="unidadeMedida.nome" name="unidadeMedidaNome" required #unidadeMedidaNome="ngModel">
+    <div class="alert alert-danger" *ngIf="unidadeMedidaNome.touched && !unidadeMedidaNome.valid">Por favor digite o nome da unidade de medida.</div>
+  </div>
+  <div class="form-group">
+    <br>
+    <label for="sigla">Sigla</label>
+    <input id="sigla" type="text" class="form-control" [(ngModel)]="unidadeMedida.sigla" name="sigla" required #sigla="ngModel">
+    <div class="alert alert-danger" *ngIf="sigla.touched && !sigla.valid">Por favor digite a sigla.</div>
+  </div>
+  <p>A unidade de medida está ativa?</p>
+  <label for="ativo" class="radio-inline">
+    <input type="radio" name="ativo" id="ativo" [value]="true" [(ngModel)]="unidadeMedida.ativo"> Sim
+  </label>
+  <label for="notAtivo" class="radio-inline">
+    <input type="radio" name="ativo" id="notAtivo" [value]="false" [(ngModel)]="unidadeMedida.ativo"> Não
+  </label>
+  <br>
+  <br>
+  <button class="btn btn-primary">Salvar</button>
+</form>

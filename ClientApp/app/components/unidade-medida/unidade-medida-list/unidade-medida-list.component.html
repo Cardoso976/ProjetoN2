@@ -1,3 +1,25 @@
+<h1>Lista de Unidade de Medidas</h1>
 <p>
-  unidade-medida-list works!
-</p>
+    <a [routerLink]="['/unidadeMedida/new']" class="btn btn-primary">Nova Unidade Medida</a>
+  </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of unidadeMedidas" >
+      <td>{{ u.nome }}</td>
+      <td>{{ u.sigla }}</td>
+      <td>{{ u.ativo ? 'Sim' : 'Não' }}</td>
+      <td>
+          <a [routerLink]="['/unidadeMedida/', u.id]">Detalhes</a>
+        </td>
+    </tr>
+  </tbody>
+</table>

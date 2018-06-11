@@ -43,9 +43,9 @@ export class ViewMarcaComponent implements OnInit {
     if (confirm("Are you sure?")) {
       this.marcaService.delete(this.marca.id)
         .subscribe(x => {
-          this.toasty.success({
+          this.toasty.warning({
             title: 'Sucesso', 
-            msg: 'Marca adicionada com sucesso.',
+            msg: 'Marca deletada com sucesso.',
             theme: 'bootstrap',
             showClose: true,
             timeout: 2000

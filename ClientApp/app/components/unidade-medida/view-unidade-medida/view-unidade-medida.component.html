@@ -1,3 +1,25 @@
-<p>
-  view-unidade-medida works!
-</p>
+<h1>Unidade de Medida</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a aria-controls="basic" role="tab" data-toggle="tab">Unidade Medida</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" >
+    <!-- Vehicle tab -->
+    <div role="tabpanel" class="tab-pane active" *ngIf="unidadeMedida">
+      <h2>Basico</h2>
+      <ul>
+        <li>Nome: {{ unidadeMedida.nome}}</li>
+        <li>Sigla: {{ unidadeMedida.sigla}}</li>
+        <li>Ativo: {{ unidadeMedida.ativo ? 'Sim' : 'Não' }}
+      </ul>      
+      <br/>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/unidadeMedida/edit/', unidadeMedida.id]">Editar</a>
+        <button class="btn btn-danger" (click)="delete()">Excluir</button>
+        <a class="btn btn-default" [routerLink]="['/unidadeMedida']">Lista de Unidade de Medidas</a>
+      </p>
+    </div>    
+  </div>
+</div>
