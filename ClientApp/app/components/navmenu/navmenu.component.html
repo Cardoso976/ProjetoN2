@@ -21,17 +21,12 @@
                     <a [routerLink]="['/marcas']">
                         <span class='glyphicon glyphicon-th-list'></span> Marcas
                     </a>
-                </li>               
-                <!-- <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/counter']">
-                        <span class='glyphicon glyphicon-education'></span> Counter
+                </li>
+                <li [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['/unidadeMedida']">
+                        <span class='glyphicon glyphicon-th-list'></span> Unidade Medidas
                     </a>
                 </li>
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/fetch-data']">
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
-                    </a>
-                </li> -->
             </ul>
         </div>
     </div>
