@@ -79,5 +79,19 @@ namespace Estoque.Controllers
             return Ok(result);
         } 
 
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCliente(int id)
+        {
+            var cliente = await repository.GetCliente(id);
+            if (cliente == null) return NotFound();
+
+            repository.Delete(cliente);
+            await unitOfWork.CompleteAsync();
+
+            var result = mapper.Map<Cliente, ClienteResource>(cliente);
+
+            return Ok(result);
+        }
+
     }
 }
