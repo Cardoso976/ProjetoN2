@@ -16,7 +16,7 @@ namespace Estoque.Controllers.Resource
 
         public string NumDocumento { get; set; }
 
-        public int TipoPessoa { get; set; }
+        public bool TipoPessoa { get; set; }
 
         public string Telefone { get; set; }
 

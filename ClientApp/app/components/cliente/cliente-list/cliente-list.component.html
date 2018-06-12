@@ -1,3 +1,27 @@
+<h1>Lista de Clientes</h1>
 <p>
-  cliente-list works!
+  <a [routerLink]="['/cliente/new']" class="btn btn-primary">Cadastrar Cliente</a>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of clientes" >
+      <td>{{ cliente.nome }}</td>
+      <td>{{ cliente.razaoSocial }}</td>
+      <td>{{ cliente.numDocumento }}</td>
+      <td>{{ cliente.tipoPessoa ? 'Jurídica' : 'Física' }}</td>
+      <td>{{ cliente.telefone }}</td>
+      <td>
+          <a [routerLink]="['/cliente/', cliente.id]">Detalhes</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

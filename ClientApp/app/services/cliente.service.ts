@@ -17,8 +17,17 @@ export class ClienteService {
       .map(res => res.json());
   }
 
+  update(id: any, cliente: any){
+    return this.http.put(this.marcasEndpoint + '/' + id, cliente);
+  }
+
   create(cliente: any){
     return this.http.post(this.marcasEndpoint, cliente)
+      .map(res => res.json());
+  }
+
+  delete(id: any){
+    return this.http.delete(this.marcasEndpoint + '/' + id)
       .map(res => res.json());
   }
 }

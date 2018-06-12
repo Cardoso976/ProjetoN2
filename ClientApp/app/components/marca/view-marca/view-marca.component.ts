@@ -33,7 +33,7 @@ export class ViewMarcaComponent implements OnInit {
         m => this.marca = m,
         err => {
           if (err.status == 404) {
-            this.router.navigate(['/vehicles']);
+            this.router.navigate(['/marcas']);
             return; 
           }
         });

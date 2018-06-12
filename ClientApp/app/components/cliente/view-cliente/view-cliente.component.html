@@ -1,3 +1,35 @@
-<p>
-  view-cliente works!
-</p>
+<h1>Cliente</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a aria-controls="basic" role="tab" data-toggle="tab">Cliente</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" >
+    <!-- Vehicle tab -->
+    <div role="tabpanel" class="tab-pane active" *ngIf="cliente">
+      <h2>Basico</h2>
+      <ul>
+        <li><strong>Nome: </strong>{{ cliente.nome}}</li>
+        <li><strong>Razão Social: </strong>{{ cliente.razaoSocial }}</li>
+        <li><strong>CPF/CNPJ: </strong>{{ cliente.numDocumento }}</li>
+        <li><strong>Tipo Pessoa: </strong>{{ cliente.tipoPessoa ? 'Jurídica' : 'Física' }}</li>
+        <li><strong>Telefone :</strong> {{ cliente.telefone }}</li>
+        <li><strong>Contato: </strong> {{ cliente.contato}}</li>
+        <li><strong>Logradouro: </strong>{{ cliente.logradouro}}</li>
+        <li><strong>Numero: </strong>{{ cliente.numero}}</li>
+        <li><strong>Complemento: </strong>{{ cliente.complemento}}</li>
+        <li><strong>Cep: </strong>{{ cliente.cep}}</li>
+        <li><strong>Cidade: </strong>{{ cliente.cidade}}</li>
+        <li><strong>Estado: </strong>{{ cliente.estado}}</li>
+        <li><strong>País: </strong>{{ cliente.pais}}</li>
+      </ul>      
+      <br/>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/cliente/edit/', cliente.id]">Editar</a>
+        <button class="btn btn-danger" (click)="delete()">Excluir</button>
+        <a class="btn btn-default" [routerLink]="['/clientes']">Lista de Marcas</a>
+      </p>
+    </div>    
+  </div>
+</div>

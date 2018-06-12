@@ -1,4 +1,7 @@
 <h1>Cliente</h1>
+<p>
+  {{ cliente | json }}
+</p>
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="row">
     <div class="col-md-9">
@@ -10,23 +13,23 @@
     <div class="col-md-3" >
       <div>
         <label for="tipo" class="radio-inline">
-            <input type="radio" name="tipo" id="fisico" [value]="true" [(ngModel)]="cliente.tipo"> Sim
+            <input type="radio" name="tipo" id="fisico" [value]="true" [(ngModel)]="cliente.tipoPessoa"> Sim
         </label>
       </div>
       <div>
         <label for="tipo" class="radio-inline">
-            <input type="radio" name="tipo" id="juridico" [value]="false" [(ngModel)]="cliente.tipo"> Não
+            <input type="radio" name="tipo" id="juridico" [value]="false" [(ngModel)]="cliente.tipoPessoa"> Não
         </label>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
-        <label for="numeroDocumento">CPF/CNPJ</label>
-        <input id="numeroDocumento" type="text" class="form-control" [(ngModel)]="cliente.numeroDocumento" name="numeroDocumento" required #numeroDocumento="ngModel">
-        <div class="alert alert-danger" *ngIf="numeroDocumento.touched && !numeroDocumento.valid">Por favor digite o CPF/CNPJ.</div>
+        <label for="numDocumento">CPF/CNPJ</label>
+        <input id="numDocumento" type="text" class="form-control" [(ngModel)]="cliente.numDocumento" name="numDocumento" required #numDocumento="ngModel">
+        <div class="alert alert-danger" *ngIf="numDocumento.touched && !numDocumento.valid">Por favor digite o CPF/CNPJ.</div>
     </div>
-    <div class="col-md-8" *ngIf="cliente.tipo" >
+    <div class="col-md-8" *ngIf="cliente.tipoPessoa" >
         <label for="razaoSocial">Razão Social</label>
         <input id="razaoSocial" type="text" class="form-control" [(ngModel)]="cliente.razaoSocial" name="razaoSocial" required #razaoSocial="ngModel">
         <div class="alert alert-danger" *ngIf="razaoSocial.touched && !razaoSocial.valid">Por favor digite a razão social.</div>
@@ -36,12 +39,10 @@
     <div class="col-md-4">
         <label for="telefone">Telefone</label>
         <input id="telefone" type="text" class="form-control" [(ngModel)]="cliente.telefone" name="telefone" required #telefone="ngModel">
-        <div class="alert alert-danger" *ngIf="telefone.touched && !telefone.valid">Por favor digite o CPF/CNPJ.</div>
     </div>
     <div class="col-md-8">
         <label for="contato">Contato</label>
         <input id="contato" type="text" class="form-control" [(ngModel)]="cliente.contato" name="contato" required #contato="ngModel">
-        <div class="alert alert-danger" *ngIf="contato.touched && !contato.valid">Por favor digite a razão social.</div>
     </div>
   </div>
   <div class="row" style = 'margin-top: 15px'>
@@ -53,43 +54,39 @@
             <div class="col-md-9">
                 <label for="logradouro">Logradouro</label>
                 <input id="logradouro" type="text" class="form-control" [(ngModel)]="cliente.logradouro" name="logradouro" required #logradouro="ngModel">
-                <div class="alert alert-danger" *ngIf="logradouro.touched && !logradouro.valid">Por favor digite a razão social.</div>
             </div>
             <div class="col-md-3">
-              <label for="contato">Número</label>
-              <input id="contato" type="text" class="form-control" [(ngModel)]="cliente.contato" name="contato" required #contato="ngModel">
-              <div class="alert alert-danger" *ngIf="contato.touched && !contato.valid">Por favor digite a razão social.</div>
+              <label for="numero">Número</label>
+              <input id="numero" type="text" class="form-control" [(ngModel)]="cliente.numero" name="numero" required #numero="ngModel">
             </div>
           </div>
           <div class="row">
             <div class="col-md-9">
                 <label for="complemento">Complemento</label>
                 <input id="complemento" type="text" class="form-control" [(ngModel)]="cliente.complemento" name="complemento" required #complemento="ngModel">
-                <div class="alert alert-danger" *ngIf="complemento.touched && !complemento.valid">Por favor digite a razão social.</div>
             </div>
             <div class="col-md-3">
               <label for="cep">CEP</label>
               <input id="cep" type="text" class="form-control" [(ngModel)]="cliente.cep" name="cep" required #cep="ngModel">
-              <div class="alert alert-danger" *ngIf="cep.touched && !cep.valid">Por favor digite a razão social.</div>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
                   <label for="pais">País</label>
                   <input id="pais" type="text" class="form-control" [(ngModel)]="cliente.pais" name="pais" required #pais="ngModel">
-                  <div class="alert alert-danger" *ngIf="pais.touched && !pais.valid">Por favor digite a razão social.</div>              
+                  <div class="alert alert-danger" *ngIf="pais.touched && !pais.valid">Por favor digite o país.</div>              
             </div>
             <div class="col-md-6">
                 <label for="estado">Estado</label>
                 <input id="estado" type="text" class="form-control" [(ngModel)]="cliente.estado" name="estado" required #estado="ngModel">
-                <div class="alert alert-danger" *ngIf="estado.touched && !estado.valid">Por favor digite a razão social.</div>
+                <div class="alert alert-danger" *ngIf="estado.touched && !estado.valid">Por favor digite o estado.</div>
             </div>           
           </div>
           <div class="row">            
               <div class="col-md-12">
                   <label for="cidade">Cidade</label>
                   <input id="cidade" type="text" class="form-control" [(ngModel)]="cliente.cidade" name="cidade" required #cidade="ngModel">
-                  <div class="alert alert-danger" *ngIf="cidade.touched && !cidade.valid">Por favor digite a razão social.</div>
+                  <div class="alert alert-danger" *ngIf="cidade.touched && !cidade.valid">Por favor digite a cidade.</div>
               </div> 
           </div>       
         </div>

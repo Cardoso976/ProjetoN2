@@ -20,7 +20,7 @@ namespace Estoque.Core.Models
         public string NumDocumento { get; set; }
 
         [Required]
-        public int TipoPessoa { get; set; }
+        public bool TipoPessoa { get; set; } //alterar para boolean
 
         [Required(ErrorMessage = "Preencha o telefone.")]
         [MaxLength(20, ErrorMessage = "O telefone deve ter 20 caracteres.")]

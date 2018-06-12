@@ -20,7 +20,6 @@ export class MarcaListComponent implements OnInit {
   ngOnInit() {
     this.marcaService.getMarcas()
       .subscribe(marcas => this.marcas = marcas);
-    console.log(this.marcas);
   }
 
 }

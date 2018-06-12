@@ -1,3 +1,4 @@
+import { ClienteService } from './services/cliente.service';
 import { AppErrorHandler } from './app.error-handler';
 import { ErrorHandler } from '@angular/core';
 import { NgModule } from '@angular/core';
@@ -67,7 +68,7 @@ Raven
             { path: 'cliente/new', component: ClienteFormComponent },
             { path: 'cliente/edit/:id', component: ClienteFormComponent },
             { path: 'cliente/:id', component: ViewClienteComponent },
-            { path: 'cliente', component: ClienteListComponent },
+            { path: 'clientes', component: ClienteListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
@@ -76,7 +77,8 @@ Raven
     providers: [
         { provide: ErrorHandler, useClass: AppErrorHandler },
         MarcaService,
-        UnidadeMedidaService
+        UnidadeMedidaService,
+        ClienteService
     ]
 })
 export class AppModuleShared {
