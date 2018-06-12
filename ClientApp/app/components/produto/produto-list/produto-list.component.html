@@ -1,3 +1,25 @@
+<h1>Lista de Produtos</h1>
 <p>
-  produto-list works!
+  <a [routerLink]="['/produtos/new']" class="btn btn-primary">Novo Produto</a>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of produtos">
+      <td>{{ p.nome }}</td>
+      <td>{{ p.codigo }}</td>
+      <td>{{ p.quantEstoque }}</td>
+      <td>
+        <a [routerLink]="['/produtos/', p.id]">Detalhes</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
