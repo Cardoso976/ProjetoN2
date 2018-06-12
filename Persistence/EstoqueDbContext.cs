@@ -14,9 +14,20 @@ namespace Estoque.Persistence
          : base (options)
         { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder){
-            modelBuilder.Entity<ProdutoCliente>().HasKey(pc => 
-                new { pc.ClienteId, pc.ProdutoId });
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProdutoCliente>()
+                .HasKey(t => new { t.ClienteId, t.ProdutoId });
+
+            modelBuilder.Entity<ProdutoCliente>()
+                .HasOne(pt => pt.Cliente)
+                .WithMany(p => p.Produtos)
+                .HasForeignKey(pt => pt.ClienteId);
+
+            modelBuilder.Entity<ProdutoCliente>()
+                .HasOne(pt => pt.Produto)
+                .WithMany(t => t.Clientes)
+                .HasForeignKey(pt => pt.ProdutoId);
         }        
     }
 }

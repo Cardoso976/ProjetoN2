@@ -16,9 +16,11 @@ namespace Estoque.Controllers.Resource
         public decimal PrecoVenda { get; set; }
 
         public int QuantEstoque { get; set; }
-
+        
+        public int? UnidadeMedidaId { get; set; }
         public UnidadeMedidaResource UnidadeMedida { get; set; }
 
+        public int? MarcaId { get; set; }
         public MarcaResource Marca { get; set; }              
 
         public bool Ativo { get; set; }

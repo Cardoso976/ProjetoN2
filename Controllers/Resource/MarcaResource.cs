@@ -9,13 +9,6 @@ namespace Estoque.Controllers.Resource
         
         public string Nome { get; set; }
 
-        public bool Ativo{ get; set; }
-
-        public ICollection<ProdutoResource> Produtos { get; set; }
-
-        public MarcaResource()
-        {
-            Produtos = new Collection<ProdutoResource>();
-        }         
+        public bool Ativo{ get; set; }         
     }
 }

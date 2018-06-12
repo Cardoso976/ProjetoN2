@@ -11,13 +11,6 @@ namespace Estoque.Core.Models
         [Required(ErrorMessage = "Preencha o nome.")]
         public string Nome { get; set; }
 
-        public bool Ativo{ get; set; }
-
-        public ICollection<Produto> Produtos { get; set; }
-
-        public Marca()
-        {
-            Produtos = new Collection<Produto>();
-        }       
+        public bool Ativo{ get; set; }     
     }
 }

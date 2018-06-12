@@ -12,12 +12,6 @@ namespace Estoque.Controllers.Resource
         public string Sigla { get; set; }
 
         public bool Ativo { get; set; }
-
-        public ICollection<ProdutoResource> Produtos { get; set; }
-
-        public UnidadeMedidaResource()
-        {
-            Produtos = new Collection<ProdutoResource>();
-        }        
+               
     }
 }

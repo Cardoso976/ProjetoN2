@@ -13,6 +13,9 @@ namespace Estoque.Mapping
             CreateMap<Marca, MarcaResource>();
             CreateMap<Produto, ProdutoResource>();
             CreateMap<UnidadeMedida, UnidadeMedidaResource>();
+
+            // API Resource to Domain
+            //CreateMap<ProdutoResource, Produto>();
         }
         
     }

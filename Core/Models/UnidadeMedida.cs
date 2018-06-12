@@ -15,12 +15,6 @@ namespace Estoque.Core.Models
         public string Sigla { get; set; }
 
         public bool Ativo { get; set; }
-
-        public ICollection<Produto> Produtos { get; set; }
-
-        public UnidadeMedida()
-        {
-            Produtos = new Collection<Produto>();
-        }
+        
     }
 }

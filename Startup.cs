@@ -28,8 +28,9 @@ namespace Estoque
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IMarcaRepository, MarcaRepository>();
             services.AddScoped<IClienteRepository, ClienteRepository>();
+            services.AddScoped<IMarcaRepository, MarcaRepository>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddAutoMapper();
 
