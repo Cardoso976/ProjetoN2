@@ -22,6 +22,9 @@ import { MarcaListComponent } from './components/marca/marca-list/marca-list.com
 import { UnidadeMedidaFormComponent } from './components/unidade-medida/unidade-medida-form/unidade-medida-form.component';
 import { UnidadeMedidaListComponent } from './components/unidade-medida/unidade-medida-list/unidade-medida-list.component';
 import { ViewUnidadeMedidaComponent } from './components/unidade-medida/view-unidade-medida/view-unidade-medida.component';
+import { ViewClienteComponent } from './components/cliente/view-cliente/view-cliente.component';
+import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-form.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 
 Raven
   .config('https://fea869838b90474aaa0dfb21e1bcad0f@sentry.io/1222781')
@@ -40,7 +43,10 @@ Raven
         MarcaListComponent,
         UnidadeMedidaFormComponent,
         UnidadeMedidaListComponent,
-        ViewUnidadeMedidaComponent
+        ViewUnidadeMedidaComponent,
+        ViewClienteComponent,
+        ClienteFormComponent,
+        ClienteListComponent
     ],
     imports: [
         CommonModule,
@@ -58,6 +64,10 @@ Raven
             { path: 'unidadeMedida/edit/:id', component: UnidadeMedidaFormComponent },
             { path: 'unidadeMedida/:id', component: ViewUnidadeMedidaComponent },
             { path: 'unidadeMedida', component: UnidadeMedidaListComponent },
+            { path: 'cliente/new', component: ClienteFormComponent },
+            { path: 'cliente/edit/:id', component: ClienteFormComponent },
+            { path: 'cliente/:id', component: ViewClienteComponent },
+            { path: 'cliente', component: ClienteListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
