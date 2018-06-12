@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -23,7 +24,7 @@ namespace Estoque.Controllers.Resource
         public int? MarcaId { get; set; }
         public MarcaResource Marca { get; set; }              
 
-        public bool Ativo { get; set; }
+        public DateTime UltimaModificacao { get; set; }
 
         public ICollection<ClienteResource> Clientes { get; set; }
 

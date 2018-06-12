@@ -71,6 +71,8 @@ namespace Estoque.Controllers
             if (cliente == null) return NotFound();
 
             mapper.Map<ClienteResource, Cliente>(clienteResource, cliente);
+            cliente.UltimaModificacao = DateTime.Now;
+            
             await unitOfWork.CompleteAsync();
 
             cliente = await repository.GetCliente(cliente.Id);

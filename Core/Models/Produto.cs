@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -34,7 +35,7 @@ namespace Estoque.Core.Models
         public int? MarcaId { get; set; }
         public Marca Marca { get; set; }              
 
-        public bool Ativo { get; set; }
+        public DateTime UltimaModificacao { get; set; }
 
         public ICollection<ProdutoCliente> Clientes { get; set; }
 

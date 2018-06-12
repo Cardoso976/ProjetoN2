@@ -1,0 +1,56 @@
+<h1>Cadastro de Produtos</h1>
+<p>{{ produto | json }}</p>
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="row" style='margin-top: 10px'>
+    <div class="col-md-4">
+      <label for="codigo">Código</label>
+      <input id="codigo" type="text" class="form-control" [(ngModel)]="produto.codigo" name="produtocodigo" required #produtocodigo="ngModel">
+      <div class="alert alert-danger" *ngIf="produtocodigo.touched && !produtocodigo.valid">Por favor digite o codigo da produto.</div>
+    </div>
+    <div class="col-md-8">
+      <label for="nome">Produto</label>
+      <input id="nome" type="text" class="form-control" [(ngModel)]="produto.nome" name="produtoNome" required #produtoNome="ngModel">
+      <div class="alert alert-danger" *ngIf="produtoNome.touched && !produtoNome.valid">Por favor digite o nome do Produto.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="precoCusto">Preço de Custo</label>
+      <input id="precoCusto" type="text" class="form-control" [(ngModel)]="produto.precoCusto" name="precoCusto" required #precoCusto="ngModel">
+      <div class="alert alert-danger" *ngIf="precoCusto.touched && !precoCusto.valid">Por favor digite o Preço de Custo.</div>
+    </div>
+    <div class="col-md-4">
+      <label for="precoVenda">Preço de Venda</label>
+      <input id="precoVenda" type="text" class="form-control" [(ngModel)]="produto.precoVenda" name="precoVenda" required #precoVenda="ngModel">
+      <div class="alert alert-danger" *ngIf="precoVenda.touched && !precoVenda.valid">Por favor digite o Preço de Venda.</div>
+    </div>
+    <div class="col-md-4">
+      <label for="quantEstoque">Quant Estoque</label>
+      <input id="quantEstoque" type="text" class="form-control" [(ngModel)]="produto.quantEstoque" name="quantEstoque" required
+        #quantEstoque="ngModel">
+      <div class="alert alert-danger" *ngIf="quantEstoque.touched && !quantEstoque.valid">Por favor digite Quant Estoque.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <label for="marca">Marca</label>
+      <select id="marca" class="form-control" [(ngModel)]="produto.marcaId" name="marcaId" required
+        #marca="ngModel">
+        <option value=""></option>
+        <option *ngFor="let m of marcas" value="{{ m.id }}">{{ m.nome }}</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="marca.touched && !marca.valid">Porfavor selecione uma marca.</div>
+    </div>
+    <div class="col-md-4">
+      <label for="unidadeMedidaId">Unidade de Medida</label>
+      <select id="unidadeMedidaId" class="form-control" [(ngModel)]="produto.unidadeMedidaId" name="unidadeMedidaId" required #unidadeMedida="ngModel">
+        <option value=""></option>
+        <option *ngFor="let u of unidadeMedidas" value="{{ u.id }}">{{ u.nome }}</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="unidadeMedida.touched && !unidadeMedida.valid">Por favor selecione Unidade de Medida.</div>
+    </div>
+  </div>
+  <div style='margin-top: 15px'>
+    <button class="btn btn-primary">Salvar</button>
+  </div>
+</form>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -46,6 +47,7 @@ namespace Estoque.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var produto = mapper.Map<ProdutoResource, Produto>(produtoResource);
+            produto.UltimaModificacao = DateTime.Now;
 
             repository.Add(produto);
             await unitOfWork.CompleteAsync();
@@ -65,6 +67,7 @@ namespace Estoque.Controllers
             if (produto == null) return NotFound();
 
             mapper.Map<ProdutoResource, Produto>(produtoResource, produto);
+            produto.UltimaModificacao = DateTime.Now;
 
             await unitOfWork.CompleteAsync();
 

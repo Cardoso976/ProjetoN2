@@ -1,4 +1,3 @@
-import { ClienteService } from './services/cliente.service';
 import { AppErrorHandler } from './app.error-handler';
 import { ErrorHandler } from '@angular/core';
 import { NgModule } from '@angular/core';
@@ -10,6 +9,8 @@ import {ToastyModule} from 'ng2-toasty';
 
 import { MarcaService } from './services/marca.service';
 import { UnidadeMedidaService } from './services/unidade-medida.service';
+import { ProdutoService } from './services/produto.service';
+import { ClienteService } from './services/cliente.service';
 import * as Raven from 'raven-js';
 
 import { AppComponent } from './components/app/app.component';
@@ -26,6 +27,9 @@ import { ViewUnidadeMedidaComponent } from './components/unidade-medida/view-uni
 import { ViewClienteComponent } from './components/cliente/view-cliente/view-cliente.component';
 import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-form.component';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ProdutoFormComponent } from './components/produto/produto-form/produto-form.component';
+import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
+import { ViewProdutoComponent } from './components/produto/view-produto/view-produto.component';
 
 Raven
   .config('https://fea869838b90474aaa0dfb21e1bcad0f@sentry.io/1222781')
@@ -47,7 +51,10 @@ Raven
         ViewUnidadeMedidaComponent,
         ViewClienteComponent,
         ClienteFormComponent,
-        ClienteListComponent
+        ClienteListComponent,
+        ProdutoFormComponent,
+        ProdutoListComponent,
+        ViewProdutoComponent
     ],
     imports: [
         CommonModule,
@@ -65,10 +72,14 @@ Raven
             { path: 'unidadeMedida/edit/:id', component: UnidadeMedidaFormComponent },
             { path: 'unidadeMedida/:id', component: ViewUnidadeMedidaComponent },
             { path: 'unidadeMedida', component: UnidadeMedidaListComponent },
-            { path: 'cliente/new', component: ClienteFormComponent },
-            { path: 'cliente/edit/:id', component: ClienteFormComponent },
-            { path: 'cliente/:id', component: ViewClienteComponent },
+            { path: 'clientes/new', component: ClienteFormComponent },
+            { path: 'clientes/edit/:id', component: ClienteFormComponent },
+            { path: 'clientes/:id', component: ViewClienteComponent },
             { path: 'clientes', component: ClienteListComponent },
+            { path: 'produtos/new', component: ProdutoFormComponent },
+            { path: 'produtos/edit/:id', component: ProdutoFormComponent },
+            { path: 'produtos/:id', component: ViewProdutoComponent },
+            { path: 'produtos', component: ProdutoListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
@@ -78,7 +89,8 @@ Raven
         { provide: ErrorHandler, useClass: AppErrorHandler },
         MarcaService,
         UnidadeMedidaService,
-        ClienteService
+        ClienteService,
+        ProdutoService
     ]
 })
 export class AppModuleShared {
