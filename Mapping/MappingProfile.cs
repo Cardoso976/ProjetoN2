@@ -11,7 +11,8 @@ namespace Estoque.Mapping
             // Domain to API Resource
             CreateMap<Cliente, ClienteResource>();
             CreateMap<Marca, MarcaResource>();
-            CreateMap<Produto, ProdutoResource>();
+            CreateMap<Produto, ProdutoResource>();            
+            CreateMap<ProdutoCliente, VendaResource>();
             CreateMap<UnidadeMedida, UnidadeMedidaResource>();
 
             // API Resource to Domain

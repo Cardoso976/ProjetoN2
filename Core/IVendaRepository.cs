@@ -8,7 +8,11 @@ namespace Estoque.Core
     {
         Task<IEnumerable<ProdutoCliente>> GetVendas();
 
-        Task<ProdutoCliente> GetVenda(int clienteId, int produtoId);
+        Task<ProdutoCliente> GetVenda(int id, int clienteId, int produtoId);
+
+        void Add(ProdutoCliente venda);
+
+        void Delete(ProdutoCliente venda);
 
     }
 }

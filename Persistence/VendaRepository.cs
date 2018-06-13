@@ -26,9 +26,19 @@ namespace Estoque.Persistence
             return vendas;
         }
 
-        public async Task<ProdutoCliente> GetVenda(int clienteId, int produtoId)
+        public async Task<ProdutoCliente> GetVenda(int id, int clienteId, int produtoId)
         {            
-            return await context.Vendas.FindAsync(clienteId, produtoId);
+            return await context.Vendas.FindAsync(id, clienteId, produtoId);
+        }
+
+        public void Add(ProdutoCliente venda)
+        {
+            context.Add(venda);
+        }
+
+        public void Delete(ProdutoCliente venda)
+        {
+            context.Remove(venda);
         }
     }
 }

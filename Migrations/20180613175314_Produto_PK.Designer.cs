@@ -4,14 +4,16 @@ using Estoque.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Estoque.Migrations
 {
     [DbContext(typeof(EstoqueDbContext))]
-    partial class EstoqueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180613175314_Produto_PK")]
+    partial class Produto_PK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,9 +130,7 @@ namespace Estoque.Migrations
 
             modelBuilder.Entity("Estoque.Core.Models.ProdutoCliente", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("VendaId");
 
                     b.Property<int>("ClienteId");
 
@@ -139,11 +139,11 @@ namespace Estoque.Migrations
                     b.Property<DateTime>("DataCompra");
 
                     b.Property<decimal>("PrecoPago")
-                        .HasColumnType("decimal(9, 2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.Property<int>("QuantidadeProduto");
 
-                    b.HasKey("Id", "ClienteId", "ProdutoId");
+                    b.HasKey("VendaId", "ClienteId", "ProdutoId");
 
                     b.HasIndex("ClienteId");
 

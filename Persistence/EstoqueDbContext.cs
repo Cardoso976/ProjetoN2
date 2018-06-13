@@ -19,7 +19,11 @@ namespace Estoque.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProdutoCliente>()
-                .HasKey(t => new { t.ClienteId, t.ProdutoId });
+                .HasKey(t => new { t.Id, t.ClienteId, t.ProdutoId });
+
+            modelBuilder.Entity<ProdutoCliente>()
+                .Property(v => v.Id)
+                .ValueGeneratedOnAdd();
         }        
     }
 }

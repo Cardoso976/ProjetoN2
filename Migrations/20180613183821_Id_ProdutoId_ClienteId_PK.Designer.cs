@@ -4,14 +4,16 @@ using Estoque.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Estoque.Migrations
 {
     [DbContext(typeof(EstoqueDbContext))]
-    partial class EstoqueDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180613183821_Id_ProdutoId_ClienteId_PK")]
+    partial class Id_ProdutoId_ClienteId_PK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,7 +141,7 @@ namespace Estoque.Migrations
                     b.Property<DateTime>("DataCompra");
 
                     b.Property<decimal>("PrecoPago")
-                        .HasColumnType("decimal(9, 2)");
+                        .HasColumnType("decimal(5, 2)");
 
                     b.Property<int>("QuantidadeProduto");
 
