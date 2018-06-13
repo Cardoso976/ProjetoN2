@@ -7,19 +7,24 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/produtos']">Estoque</a>
+            <a class='navbar-brand' [routerLink]="['/vendas']">Estoque</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/produtos']">
-                        <span class='glyphicon glyphicon-barcode'></span> Produtos
+                    <a [routerLink]="['/vendas']">
+                        <span class='glyphicon glyphicon-shopping-cart'></span> Vendas
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/clientes']">
                         <span class='glyphicon glyphicon-user'></span> Clientes
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/produtos']">
+                        <span class='glyphicon glyphicon-barcode'></span> Produtos
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">

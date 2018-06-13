@@ -11,6 +11,7 @@ import { MarcaService } from './services/marca.service';
 import { UnidadeMedidaService } from './services/unidade-medida.service';
 import { ProdutoService } from './services/produto.service';
 import { ClienteService } from './services/cliente.service';
+import { VendaService } from './services/venda.service';
 import * as Raven from 'raven-js';
 
 import { AppComponent } from './components/app/app.component';
@@ -30,7 +31,9 @@ import { ClienteListComponent } from './components/cliente/cliente-list/cliente-
 import { ProdutoFormComponent } from './components/produto/produto-form/produto-form.component';
 import { ProdutoListComponent } from './components/produto/produto-list/produto-list.component';
 import { ViewProdutoComponent } from './components/produto/view-produto/view-produto.component';
-
+import { VendaFormComponent } from './components/venda/venda-form/venda-form.component';
+import { VendaListComponent } from './components/venda/venda-list/venda-list.component';
+import { ViewVendaComponent } from './components/venda/view-venda/view-venda.component';
 Raven
   .config('https://fea869838b90474aaa0dfb21e1bcad0f@sentry.io/1222781')
   .install();
@@ -54,7 +57,10 @@ Raven
         ClienteListComponent,
         ProdutoFormComponent,
         ProdutoListComponent,
-        ViewProdutoComponent
+        ViewProdutoComponent,
+        VendaFormComponent,
+        VendaListComponent,
+        ViewVendaComponent
     ],
     imports: [
         CommonModule,
@@ -80,6 +86,9 @@ Raven
             { path: 'produtos/edit/:id', component: ProdutoFormComponent },
             { path: 'produtos/:id', component: ViewProdutoComponent },
             { path: 'produtos', component: ProdutoListComponent },
+            { path: 'vendas/new', component: VendaFormComponent },
+            { path: 'vendas/:id', component: ViewVendaComponent },
+            { path: 'vendas', component: VendaListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
@@ -90,7 +99,8 @@ Raven
         MarcaService,
         UnidadeMedidaService,
         ClienteService,
-        ProdutoService
+        ProdutoService,
+        VendaService
     ]
 })
 export class AppModuleShared {
