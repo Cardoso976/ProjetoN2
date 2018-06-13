@@ -31,6 +31,7 @@ namespace Estoque
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IMarcaRepository, MarcaRepository>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IVendaRepository, VendaRepository>();
             services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddAutoMapper();
 

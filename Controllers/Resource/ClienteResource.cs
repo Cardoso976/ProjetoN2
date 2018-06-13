@@ -36,13 +36,7 @@ namespace Estoque.Controllers.Resource
 
         public string Cidade { get; set; }
 
-        public DateTime UltimaModificacao { get; set; }  
-
-        public ICollection<ProdutoResource> Produtos { get; set; }
-
-        public ClienteResource()
-        {
-            Produtos = new Collection<ProdutoResource>();
-        }        
+        public DateTime UltimaModificacao { get; set; }
+                      
     }
 }

@@ -25,12 +25,6 @@ namespace Estoque.Controllers.Resource
         public MarcaResource Marca { get; set; }              
 
         public DateTime UltimaModificacao { get; set; }
-
-        public ICollection<ClienteResource> Clientes { get; set; }
-
-        public ProdutoResource()
-        {
-            Clientes = new Collection<ClienteResource>();
-        }        
+                      
     }
 }
