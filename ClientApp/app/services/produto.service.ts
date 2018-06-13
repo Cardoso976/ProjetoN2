@@ -22,8 +22,8 @@ export class ProdutoService {
       .map(res => res.json());
   }
 
-  update(id: any, produto: any){
-    return this.http.put(this.produtosEndpoint + '/' + id, produto)
+  update(produto: any){
+    return this.http.put(this.produtosEndpoint + '/' + produto.id, produto)
       .map(res => res.json());
   }
 

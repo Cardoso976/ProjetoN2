@@ -34,12 +34,11 @@
   <div class="row">
     <div class="col-md-4">
       <label for="marca">Marca</label>
-      <select id="marca" class="form-control" [(ngModel)]="produto.marcaId" name="marcaId" required
-        #marca="ngModel">
+      <select id="marca" class="form-control" [(ngModel)]="produto.marcaId" name="marcaId" required #marca="ngModel">
         <option value=""></option>
         <option *ngFor="let m of marcas" value="{{ m.id }}">{{ m.nome }}</option>
       </select>
-      <div class="alert alert-danger" *ngIf="marca.touched && !marca.valid">Porfavor selecione uma marca.</div>
+      <div class="alert alert-danger" *ngIf="marca.touched && !marca.valid">Please specify the marca.</div>
     </div>
     <div class="col-md-4">
       <label for="unidadeMedidaId">Unidade de Medida</label>

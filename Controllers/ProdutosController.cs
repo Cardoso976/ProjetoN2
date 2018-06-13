@@ -71,7 +71,7 @@ namespace Estoque.Controllers
 
             await unitOfWork.CompleteAsync();
 
-            produto = await repository.GetProduto(produto.Id);
+            produto = await repository.GetProduto(id);
             var result = mapper.Map<Produto, ProdutoResource>(produto);
 
             return Ok(result);

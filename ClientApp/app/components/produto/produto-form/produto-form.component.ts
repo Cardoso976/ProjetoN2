@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./produto-form.component.css']
 })
 export class ProdutoFormComponent implements OnInit {
+  produtoId: any;
   marcas: any[] = [];
   unidadeMedidas: any[] = [];
   produto: produto = {
@@ -24,7 +25,7 @@ export class ProdutoFormComponent implements OnInit {
     quantEstoque: 0,
     unidadeMedidaId: 0,
     marcaId: 0
-  }
+  }  
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class ProdutoFormComponent implements OnInit {
 
       route.params.subscribe(p => {
         this.produto.id = +p['id'] || 0;
+        console.log(this.produto);
       });
      }
 
@@ -45,18 +47,16 @@ export class ProdutoFormComponent implements OnInit {
       this.marcaService.getMarcas(),
     ];
 
-    if (this.produto.id)
-      sources.push(this.produtoService.getProduto(this.produto.id));
+    if (this.produto.id )
+      sources.push(this.produtoService.getProduto(this.produto.id ));
 
     Observable.forkJoin(sources).subscribe(data => {
       this.unidadeMedidas = data[0];
       this.marcas = data[1];
 
-      if (this.produto.id) {
+      if (this.produto.id ) {
         this.setProduto(data[2]);
       }
-
-      console.log(this.marcas, this.unidadeMedidas);
     }, err => {
       if (err.status == 404)
         this.router.navigate(['/home']);
@@ -75,7 +75,7 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   submit(){
-    var result$ = (this.produto.id) ? this.produtoService.update(this.produto.id, this.produto) : this.produtoService.create(this.produto); 
+    var result$ = (this.produto.id) ? this.produtoService.update(this.produto) : this.produtoService.create(this.produto); 
     result$.subscribe(produto => {
       this.toastyService.success({
         title: 'Sucesso', 

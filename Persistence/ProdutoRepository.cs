@@ -26,10 +26,7 @@ namespace Estoque.Persistence
 
         public async Task<Produto> GetProduto(int id)
         {
-            var cliente = await context.Produtos
-                .Include(p => p.Marca)
-                .Include(p => p.UnidadeMedida)
-                .SingleOrDefaultAsync(p => p.Id == id);
+            var cliente = await context.Produtos.FindAsync(id);
             return cliente;
         }
 

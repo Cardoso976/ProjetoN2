@@ -2,7 +2,7 @@
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="form-group">
     <br>
-    <label for="nome">Marca</label>
+    <label for="nome">Nome da Unidade Medida</label>
     <input id="nome" type="text" class="form-control" [(ngModel)]="unidadeMedida.nome" name="unidadeMedidaNome" required #unidadeMedidaNome="ngModel">
     <div class="alert alert-danger" *ngIf="unidadeMedidaNome.touched && !unidadeMedidaNome.valid">Por favor digite o nome da unidade de medida.</div>
   </div>
