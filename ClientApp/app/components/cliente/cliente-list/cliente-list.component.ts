@@ -10,7 +10,7 @@ export class ClienteListComponent implements OnInit {
   clientes: any;
   columns = [
     {title: 'Nome'},
-    {title: 'Razão Social'},
+    //{title: 'Razão Social'},
     {title: 'Número Documento'},
     {title: 'Tipo Pessoa'},
     {title: 'Telefone'},

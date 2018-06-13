@@ -1,4 +1,4 @@
-<h1>Cliente</h1>
+<h1>Incluir Cliente</h1>
 <!-- <p>{{ cliente | json }}</p> -->
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="row">
@@ -93,5 +93,9 @@
   </div>
   <div>
     <button class="btn btn-primary">Salvar</button>
+    <button [routerLink]="['/clientes']" class="btn btn-light">Cancelar</button>
+  </div>
+  <div>
+    <br><br>
   </div>
 </form>
