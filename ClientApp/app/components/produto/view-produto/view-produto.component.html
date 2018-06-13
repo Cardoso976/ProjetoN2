@@ -1,3 +1,27 @@
-<p>
-  view-produto works!
-</p>
+<h1>Produtos</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a aria-controls="basic" role="tab" data-toggle="tab">Produtos</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" >
+    <!-- Vehicle tab -->
+    <div role="tabpanel" class="tab-pane active" *ngIf="produto">
+      <h2>Basico</h2>
+      <ul>
+        <li><strong> Codigo:</strong> {{ produto.codigo}}</li>
+        <li><strong> Nome:</strong> {{ produto.nome}}</li>
+        <li><strong> Preço Custo:</strong> {{ produto.precoCusto}}</li>
+        <li><strong> Preço Venda:</strong> {{ produto.precoVenda}}</li>
+        <li><strong> Quantidade Estoque:</strong> {{ produto.quantEstoque}}</li>
+      </ul>      
+      <br/>
+      <p>
+        <a class="btn btn-primary" [routerLink]="['/produtos/edit/', produto.id]">Editar</a>
+        <button class="btn btn-danger" (click)="delete()">Excluir</button>
+        <a class="btn btn-default" [routerLink]="['/produtos']">Lista de Produtos</a>
+      </p>
+    </div>    
+  </div>
+</div>
