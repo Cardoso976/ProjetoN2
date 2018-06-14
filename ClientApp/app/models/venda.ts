@@ -3,6 +3,12 @@ import { produto } from './venda';
 import { marca } from './marca';
 import { unidadeMedida } from './unidade-medida';
 
+export interface vendaSalvar {
+    produtoId: number,
+    clienteId: number,
+    quantidadeProduto: number
+};
+
 export interface venda {    
     id: number,
     produtoId: number,

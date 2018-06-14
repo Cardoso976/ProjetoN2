@@ -16,12 +16,16 @@
         <li><strong>Produto: </strong>{{ venda.produto.nome }}</li>
         <li><strong>Quantidade Comprada: </strong>{{ venda.quantidadeProduto }}</li>
         <li><strong>Data Compra: </strong>{{ venda.dataCompra | date: 'dd/MM/yyyy hh:mm:ss'}}</li>
-        <li><strong>Valor Pago: </strong>{{ venda.precoPago | currency:'BRL':true}}</li>
+        <li><strong>Valor Venda Unitário: </strong>{{venda.precoPago | currency:'BRL':true}}</li>
+        <li><strong>Valor Custo Unitário: </strong>{{venda.produto.precoCusto | currency:'BRL':true}}</li>
+        <li><strong>Valor Venda Total: </strong>{{venda.quantidadeProduto * venda.precoPago | currency:'BRL':true}}</li>
+        <li><strong>Valor Custo Total: </strong>{{venda.quantidadeProduto * venda.produto.precoCusto | currency:'BRL':true}}</li>
+        <li><strong>Lucro Total: </strong>{{venda.quantidadeProduto * venda.precoPago - venda.quantidadeProduto * venda.produto.precoCusto | currency:'BRL':true}}</li>
       </ul>      
       <br/>
       <p>
         <button class="btn btn-danger" (click)="delete()">Excluir</button>
-        <a class="btn btn-default" [routerLink]="['/vendas']">Lista de Marcas</a>
+        <a class="btn btn-default" [routerLink]="['/vendas']">Lista de Vendas</a>
       </p>
     </div>    
   </div>

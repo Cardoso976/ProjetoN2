@@ -1,3 +1,26 @@
-<p>
-  venda-list works!
+<h1>Vendas</h1>
+<p style="margin-top: 10px">
+  <a [routerLink]="['/vendas/new']" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Incluir Venda</a>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let v of vendas">
+      <td>{{ v.produto.nome }}</td>
+      <td>{{ v.cliente.nome }}</td>   
+      <td>{{ v.dataCompra | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+      <td>{{ v.quantidadeProduto }}</td>
+      <td>
+        <a [routerLink]="['/vendas/', v.id, v.clienteId, v.produtoId]">Detalhes</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

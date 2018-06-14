@@ -15,8 +15,10 @@ namespace Estoque.Controllers
         private readonly IVendaRepository repository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
-        public VendasController(IVendaRepository repository, IUnitOfWork unitOfWork, IMapper mapper)
+        private readonly IProdutoRepository repositoryProduto;
+        public VendasController(IVendaRepository repository, IProdutoRepository repositoryProduto, IUnitOfWork unitOfWork, IMapper mapper)
         {
+            this.repositoryProduto = repositoryProduto;
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
             this.repository = repository;
@@ -30,7 +32,7 @@ namespace Estoque.Controllers
             return mapper.Map<IEnumerable<ProdutoCliente>, IEnumerable<VendaResource>>(vendas);
         }
 
-        [HttpGet("{id}&{clienteId}&{produtoId}")]        
+        [HttpGet("{id}&{clienteId}&{produtoId}")]
         public async Task<IActionResult> GetVenda(int id, int clienteId, int produtoId)
         {
             var venda = await repository.GetVenda(id, clienteId, produtoId);
@@ -48,6 +50,14 @@ namespace Estoque.Controllers
             var venda = mapper.Map<VendaResource, ProdutoCliente>(vendaResource);
             venda.DataCompra = DateTime.Now;
 
+            var produto = await repositoryProduto.GetProduto(venda.ProdutoId);
+            if (venda.QuantidadeProduto > produto.QuantEstoque) return BadRequest();
+            venda.PrecoPago = produto.PrecoVenda;
+
+            var novoProduto = produto;
+            novoProduto.QuantEstoque -= venda.QuantidadeProduto;
+
+            mapper.Map<Produto, Produto>(novoProduto, produto);
             repository.Add(venda);
             await unitOfWork.CompleteAsync();
 
@@ -56,7 +66,7 @@ namespace Estoque.Controllers
 
             return Ok(result);
         }
-        
+
         [HttpDelete("{id}&{clienteId}&{produtoId}")]
         public async Task<IActionResult> DeleteProduto(int id, int clienteId, int produtoId)
         {

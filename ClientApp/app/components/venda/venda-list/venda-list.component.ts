@@ -1,3 +1,4 @@
+import { VendaService } from './../../../services/venda.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./venda-list.component.css']
 })
 export class VendaListComponent implements OnInit {
-
-  constructor() { }
+  vendas: any[] = [];
+  columns = [
+    {title: 'Produto'},
+    {title: 'Cliente'},
+    {title: 'Data Compra'},
+    {title: 'Quantidade'},
+    { }
+  ];
+  constructor(private vendaService: VendaService) { }
 
   ngOnInit() {
+    this.vendaService.getVendas()
+      .subscribe(data => this.vendas = data);
   }
 
 }

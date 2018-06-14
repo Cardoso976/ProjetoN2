@@ -1,3 +1,61 @@
 <p>
-  venda-form works!
+  {{venda | json}}
 </p>
+<form #f="ngForm" (ngSubmit)="submit()" novalidate>
+  <div class="row">
+    <div class="col-md-12">      
+      <div class="col-md-9">
+        <h1>Entrada de Vendas</h1>
+        <hr />
+        <fieldset>
+          <div class="row">
+            <div class="col-md-5">
+              <label for="dataCompra">Data Compra</label>
+              <input id="dataCompra" type="text" class="form-control" [(ngModel)]="dataCompra" name="dataCompra">
+            </div>            
+          </div>
+          <div class="row" style="margin-top: 30px">
+            <div class="col-md-12">
+              <table class="table table-bordered table-striped table-hover">
+                <thead>
+                  <tr class="panel panel-success">
+                    <th class="panel-heading">Produto</th>
+                    <th class="panel-heading">Cliente</th>
+                    <th class="panel-heading">Quantidade</th>
+                  </tr>
+                </thead>
+                <tbody style="margin-top: 30px">
+                  <tr>
+                    <th class="col-md-6">
+                      <select id="produto" class="form-control" [(ngModel)]="venda.produtoId" name="produtoId" required #produto="ngModel">
+                        <option *ngFor="let p of produtos" value="{{ p.id }}">{{ p.nome }}</option>
+                      </select>
+                    </th>
+                    <th class="col-md-6">
+                        <select id="cliente" class="form-control" [(ngModel)]="venda.clienteId" name="clienteId" required #cliente="ngModel">
+                          <option *ngFor="let p of clientes" value="{{ p.id }}">{{ p.nome }}</option>
+                        </select>
+                      </th>
+                    <th class="col-md-3">
+                      <input type="number" min="1" class="form-control" [(ngModel)]="venda.quantidadeProduto" name="codigo">
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <button class="btn btn-default">
+                <i class="glyphicon glyphicon-remove"></i> Cancelar
+              </button>
+              <button class="btn btn-success">
+                <i class="glyphicon glyphicon-ok"></i> Salvar
+              </button>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</form>
