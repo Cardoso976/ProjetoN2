@@ -1,3 +1,28 @@
-<p>
-  view-venda works!
-</p>
+<h1>Vendas</h1>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a aria-controls="basic" role="tab" data-toggle="tab">Vendas</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content" >
+    <!-- Vehicle tab -->
+    <div role="tabpanel" class="tab-pane active" *ngIf="venda">
+      <h2>Basico</h2>
+      <ul>
+        <li><strong>Cliente: </strong>{{ venda.cliente.nome }}</li>
+        <li *ngIf="!venda.cliente.tipoPessoa"><strong>CPF: </strong>{{ venda.cliente.numDocumento | cpfMask }}</li>
+        <li *ngIf="venda.cliente.tipoPessoa"><strong>CNPJ: </strong>{{ venda.cliente.numDocumento | cnpjMask }}</li>
+        <li><strong>Produto: </strong>{{ venda.produto.nome }}</li>
+        <li><strong>Quantidade Comprada: </strong>{{ venda.quantidadeProduto }}</li>
+        <li><strong>Data Compra: </strong>{{ venda.dataCompra | date: 'dd/MM/yyyy hh:mm:ss'}}</li>
+        <li><strong>Valor Pago: </strong>{{ venda.precoPago | currency:'BRL':true}}</li>
+      </ul>      
+      <br/>
+      <p>
+        <button class="btn btn-danger" (click)="delete()">Excluir</button>
+        <a class="btn btn-default" [routerLink]="['/vendas']">Lista de Marcas</a>
+      </p>
+    </div>    
+  </div>
+</div>

@@ -14,6 +14,9 @@ import { ClienteService } from './services/cliente.service';
 import { VendaService } from './services/venda.service';
 import * as Raven from 'raven-js';
 
+import { CpfPipe } from './pipes/cpf.pipe';
+import { CnpjPipe } from './pipes/cnpj.pipe';
+
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -60,7 +63,9 @@ Raven
         ViewProdutoComponent,
         VendaFormComponent,
         VendaListComponent,
-        ViewVendaComponent
+        ViewVendaComponent,
+        CpfPipe,
+        CnpjPipe
     ],
     imports: [
         CommonModule,
@@ -68,7 +73,7 @@ Raven
         FormsModule,
         ToastyModule.forRoot(),
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: '', redirectTo: 'vendas', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'marcas/new', component: MarcaFormComponent },
             { path: 'marcas/edit/:id', component: MarcaFormComponent },
@@ -87,11 +92,11 @@ Raven
             { path: 'produtos/:id', component: ViewProdutoComponent },
             { path: 'produtos', component: ProdutoListComponent },
             { path: 'vendas/new', component: VendaFormComponent },
-            { path: 'vendas/:id', component: ViewVendaComponent },
+            { path: 'vendas/:id/:clienteId/:produtoId', component: ViewVendaComponent },
             { path: 'vendas', component: VendaListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '**', redirectTo: 'vendas' }
         ])
     ],
     providers: [

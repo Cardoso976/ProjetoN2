@@ -51,13 +51,6 @@ namespace Estoque.Core.Models
         [Required(ErrorMessage = "Entre com a nome da cidade.")]
         public string Cidade { get; set; }
         
-        public DateTime UltimaModificacao { get; set; }        
-
-        public ICollection<ProdutoCliente> Produtos { get; set; }
-
-        public Cliente()
-        {
-            Produtos = new Collection<ProdutoCliente>();
-        }
+        public DateTime UltimaModificacao { get; set; }
     }
 }

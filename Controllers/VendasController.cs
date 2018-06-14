@@ -56,24 +56,7 @@ namespace Estoque.Controllers
 
             return Ok(result);
         }
-
-        // Nao funciona
-        // [HttpPut("{id}&{clienteId}&{produtoId}")]
-        // public async Task<IActionResult> UpdateVenda([FromBody] VendaResource vendaResource, int id, int clienteId, int produtoId)
-        // {
-        //     var venda = await repository.GetVenda(id, clienteId, produtoId);
-        //     if (venda == null) return NotFound();
-
-        //     mapper.Map<VendaResource, ProdutoCliente>(vendaResource, venda);
-
-        //     await unitOfWork.CompleteAsync();
-
-        //     venda = await repository.GetVenda(id, clienteId, produtoId);
-        //     var result = mapper.Map<ProdutoCliente, VendaResource>(venda);
-
-        //     return Ok(result);
-        // }
-
+        
         [HttpDelete("{id}&{clienteId}&{produtoId}")]
         public async Task<IActionResult> DeleteProduto(int id, int clienteId, int produtoId)
         {
