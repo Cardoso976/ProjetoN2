@@ -42,11 +42,11 @@ namespace Estoque.Controllers
         }   
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduto([FromBody] ProdutoResource produtoResource)
+        public async Task<IActionResult> CreateProduto([FromBody] SaveProdutoResource produtoResource)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            var produto = mapper.Map<ProdutoResource, Produto>(produtoResource);
+            var produto = mapper.Map<SaveProdutoResource, Produto>(produtoResource);
             produto.UltimaModificacao = DateTime.Now;
 
             repository.Add(produto);
