@@ -1,0 +1,22 @@
+<h1>Produtos Vencidos</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let c of columns">
+        <div>
+          {{ c.title }}
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of produtosVencidos">
+      <td>{{ p.nome }}</td>
+      <td>{{ p.codigo }}</td>
+      <td>{{ p.quantEstoque }}</td>
+      <td>{{ p.dataValidade | date: 'dd/MM/yyyy' }}</td>
+    </tr>
+  </tbody>
+  <br><br>
+  <p><strong>Valor Total Perdido: </strong>{{valor.valor | currency:'BRL':true}}</p>
+</table>

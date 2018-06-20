@@ -33,7 +33,20 @@ namespace Estoque.Controllers
         [Route("/api/relatorios/totalProdutos")]
         public ValorProduto GetValorTotalProdutos()
         {
-            var valor = context.Produtos.Sum(x => x.PrecoCusto * x.QuantEstoque);
+            var valor = context.Produtos.Where(t => t.DataValidade > DateTime.Now).Sum(x => x.PrecoCusto * x.QuantEstoque);
+
+            ValorProduto val = new ValorProduto();
+
+            val.Valor = valor;
+
+            return val;
+        }
+
+        [HttpGet]
+        [Route("/api/relatorios/prejuizoVencidos")]
+        public ValorProduto GetValorTotalProdutosVencidos()
+        {
+            var valor = context.Produtos.Where(t => t.DataValidade < DateTime.Now).Sum(x => x.PrecoCusto * x.QuantEstoque);
 
             ValorProduto val = new ValorProduto();
 
@@ -46,12 +59,11 @@ namespace Estoque.Controllers
         [Route("/api/relatorios/mediaProdutos")]
         public ValorProduto GetValorMedioProdutos()
         {
-            var count = context.Produtos.Where(t => t.DataValidade > DateTime.Now).Sum(t => t.QuantEstoque);
-            var valor = context.Produtos.Sum(x => x.PrecoCusto * x.QuantEstoque);
+            var valor = context.Produtos.Where(t => t.DataValidade > DateTime.Now).Sum(t => t.QuantEstoque);
 
             ValorProduto val = new ValorProduto();
 
-            val.Valor = valor/count;
+            val.Valor = valor;
 
             return val;
         }

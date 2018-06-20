@@ -17,6 +17,26 @@ export class ProdutoService {
       .map(res => res.json());
   }
 
+  getProdutosVencidos(){
+    return this.http.get('/api/relatorios/produtosVencidos')
+      .map(res => res.json());
+  }
+
+  getValorPerdidoVencidos(){
+    return this.http.get('/api/relatorios/prejuizoVencidos')
+      .map(res => res.json());
+  }
+
+  getValorMediaProdutos(){
+    return this.http.get('/api/relatorios/mediaProdutos')
+      .map(res => res.json());
+  }
+
+  getValorTotalProdutos(){
+    return this.http.get('/api/relatorios/totalProdutos')
+      .map(res => res.json());
+  }
+
   create(produto: any){
     return this.http.post(this.produtosEndpoint, produto)
       .map(res => res.json());

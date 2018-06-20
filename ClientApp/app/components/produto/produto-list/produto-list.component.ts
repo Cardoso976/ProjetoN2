@@ -8,6 +8,12 @@ import { ProdutoService } from '../../../services/produto.service';
 })
 export class ProdutoListComponent implements OnInit {
   produtos: any[] = [];
+  totProdutos: any = {
+    valor: 0
+  };
+  mediaProdutos: any = {
+    valor: 0
+  };
   columns = [
     {title: 'Nome'},
     {title: 'Código'},
@@ -20,6 +26,10 @@ export class ProdutoListComponent implements OnInit {
   ngOnInit() {
     this.produtoService.getProdutos()
       .subscribe(data => this.produtos = data);
+    this.produtoService.getValorMediaProdutos()
+      .subscribe(data => this.mediaProdutos = data);
+    this.produtoService.getValorTotalProdutos()
+      .subscribe(data => this.totProdutos = data);
   }
 
 }

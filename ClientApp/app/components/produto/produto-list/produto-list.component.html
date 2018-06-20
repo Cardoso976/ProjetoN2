@@ -1,7 +1,9 @@
 <h1>Produtos</h1>
 <p style="margin-top: 10px">
-  <a [routerLink]="['/produtos/new']" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Novo Produto</a>
+  <a [routerLink]="['/produtos/new']" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Novo Produto</a>    
+  <a [routerLink]="['/vencidos']" class="btn btn-primary"> Produtos Vencidos</a> 
 </p>
+
 <table class="table">
   <thead>
     <tr>
@@ -22,4 +24,6 @@
       </td>
     </tr>
   </tbody>
+  <p><strong>Valor Total Perdido: </strong>{{totProdutos.valor | currency:'BRL':true}}</p>
+  <p><strong>Valor Total Perdido: </strong>{{mediaProdutos.valor | currency:'BRL':true}}</p>
 </table>

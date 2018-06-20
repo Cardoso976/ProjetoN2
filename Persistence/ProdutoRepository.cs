@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Estoque.Core;
 using Estoque.Core.Models;
@@ -17,6 +19,7 @@ namespace Estoque.Persistence
         public async Task<IEnumerable<Produto>> GetProdutos()
         {
             var clientes = await context.Produtos
+                .Where(t => t.DataValidade > DateTime.Now)
                 .Include(p => p.Marca)
                 .Include(p => p.UnidadeMedida)
                 .ToListAsync();
