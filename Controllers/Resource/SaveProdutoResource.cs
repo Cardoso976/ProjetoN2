@@ -19,6 +19,8 @@ namespace Estoque.Controllers.Resource
 
         public int QuantEstoque { get; set; }
 
+        public DateTime DataValidade { get; set; }  
+
         public int? UnidadeMedidaId { get; set; }
         public UnidadeMedida UnidadeMedida { get; set; }
 

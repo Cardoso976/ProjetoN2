@@ -17,6 +17,8 @@ namespace Estoque.Controllers.Resource
         public decimal PrecoVenda { get; set; }
 
         public int QuantEstoque { get; set; }
+
+        public DateTime DataValidade { get; set; }  
         
         public int? UnidadeMedidaId { get; set; }
         public UnidadeMedidaResource UnidadeMedida { get; set; }
