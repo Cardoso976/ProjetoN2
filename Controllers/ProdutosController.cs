@@ -60,13 +60,13 @@ namespace Estoque.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateProduto(int id, [FromBody]ProdutoResource produtoResource)
+        public async Task<IActionResult> UpdateProduto(int id, [FromBody]SaveProdutoResource produtoResource)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var produto = await repository.GetProduto(id);
             if (produto == null) return NotFound();
 
-            mapper.Map<ProdutoResource, Produto>(produtoResource, produto);
+            mapper.Map<SaveProdutoResource, Produto>(produtoResource, produto);
             produto.UltimaModificacao = DateTime.Now;
 
             await unitOfWork.CompleteAsync();

@@ -12,8 +12,9 @@
       <ul>
         <li><strong> Codigo:</strong> {{ produto.codigo}}</li>
         <li><strong> Nome:</strong> {{ produto.nome}}</li>
-        <li><strong> Preço Custo:</strong> {{ produto.precoCusto}}</li>
-        <li><strong> Preço Venda:</strong> {{ produto.precoVenda}}</li>
+        <li><strong> Data Validade:</strong> {{ produto.dataValidade | date: 'dd/MM/yyyy'}}</li>
+        <li><strong> Preço Custo:</strong> {{ produto.precoCusto | currency:'BRL':true}}</li>
+        <li><strong> Preço Venda:</strong> {{ produto.precoVenda | currency:'BRL':true}}</li>
         <li><strong> Quantidade Estoque:</strong> {{ produto.quantEstoque}}</li>
       </ul>      
       <br/>

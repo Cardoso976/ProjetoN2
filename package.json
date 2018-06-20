@@ -62,6 +62,7 @@
   },
   "dependencies": {
     "@angular/cli": "^6.0.8",
+    "angular-date-value-accessor": "0.0.2",
     "ng2-toasty": "^4.0.3",
     "raven-js": "^3.26.1"
   }

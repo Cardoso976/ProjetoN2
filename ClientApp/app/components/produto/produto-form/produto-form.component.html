@@ -1,5 +1,5 @@
 <h1>Cadastro de Produtos</h1>
-<!-- <p>{{ produto | json }}</p> -->
+<p>{{ produto | json }}</p>
 <form #f="ngForm" (ngSubmit)="submit()" novalidate>
   <div class="row" style='margin-top: 10px'>
     <div class="col-md-4">
@@ -49,8 +49,8 @@
       <div class="alert alert-danger" *ngIf="unidadeMedida.touched && !unidadeMedida.valid">Por favor selecione Unidade de Medida.</div>
     </div>
     <div class="col-md-4">
-      <label for="precoVenda">Data Vencimento</label>
-      <input id="precoVenda" type="text" class="form-control" name="precoVenda">      
+      <label for="dataValidade">Data Validade</label>
+      <input id="dataValidade" type="date" class="form-control" [(ngModel)]="produto.dataValidade" name="dataValidade">      
     </div>    
   </div>
   <div style='margin-top: 15px'>

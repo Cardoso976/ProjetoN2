@@ -716,6 +716,11 @@
       "integrity": "sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=",
       "dev": true
     },
+    "angular-date-value-accessor": {
+      "version": "0.0.2",
+      "resolved": "https://registry.npmjs.org/angular-date-value-accessor/-/angular-date-value-accessor-0.0.2.tgz",
+      "integrity": "sha1-Pp7ZH6SFJa6T82hw9FOelpdervU="
+    },
     "angular2-router-loader": {
       "version": "0.3.5",
       "resolved": "https://registry.npmjs.org/angular2-router-loader/-/angular2-router-loader-0.3.5.tgz",

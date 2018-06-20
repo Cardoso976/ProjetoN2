@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./produto-form.component.css']
 })
 export class ProdutoFormComponent implements OnInit {
-  produtoId: any;
+  produtoId: any;  
   marcas: any[] = [];
   unidadeMedidas: any[] = [];
   produto: produto = {
@@ -22,6 +22,7 @@ export class ProdutoFormComponent implements OnInit {
     nome: '',
     precoCusto: 0,
     precoVenda: 0,
+    dataValidade : '',
     quantEstoque: 0,
     unidadeMedidaId: 0,
     marcaId: 0
@@ -63,10 +64,23 @@ export class ProdutoFormComponent implements OnInit {
     });
   }
 
+  private date(data: string){
+    let dataVal = data;
+    var dataTemp = dataVal.split('-');
+    var year = dataTemp [0];
+    var month = dataTemp [1];
+    var day = dataTemp [2];
+    var dayArray = day.split('T');
+    dataVal = year + "-" + month + "-" + dayArray[0];
+    return dataVal;   
+  }
+
   private setProduto(p: produto){
+    var dataValidade = this.date(p.dataValidade);
     this.produto.id = p.id,
     this.produto.codigo = p.codigo,
     this.produto.nome = p.nome,
+    this.produto.dataValidade = dataValidade,
     this.produto.precoCusto = p.precoCusto,
     this.produto.precoVenda = p.precoVenda,
     this.produto.quantEstoque = p.quantEstoque,

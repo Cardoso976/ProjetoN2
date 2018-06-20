@@ -14,6 +14,7 @@ import { ClienteService } from './services/cliente.service';
 import { VendaService } from './services/venda.service';
 import * as Raven from 'raven-js';
 
+import { DateValueAccessorModule } from 'angular-date-value-accessor';
 import { CpfPipe } from './pipes/cpf.pipe';
 import { CnpjPipe } from './pipes/cnpj.pipe';
 
@@ -68,6 +69,7 @@ Raven
         CnpjPipe
     ],
     imports: [
+        DateValueAccessorModule,
         CommonModule,
         HttpModule,
         FormsModule,

@@ -4,6 +4,7 @@ export interface produto{
     nome: string,
     precoCusto: number,
     precoVenda: number,
+    dataValidade : string,
     quantEstoque: number,
     unidadeMedidaId: number,
     marcaId: number
